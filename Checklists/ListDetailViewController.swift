@@ -5,14 +5,14 @@
 //  Created by Jamaaldeen Opasina on 18/10/2022.
 //
 
+import UIKit
 
 class ListDetailViewController: UITableViewController {
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    if let checklist = checklistToEdit{
-      title = "Edit checklist"
-import UIKit
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+      if let checklist = checklistToEdit{
+        title = "Edit checklist"
         textField.text = checklist.name
         doneBarButton.isEnabled = true
       }
