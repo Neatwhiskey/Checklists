@@ -18,3 +18,9 @@ protocol ItemDetailViewControllerDelegate: AnyObject {
     didFinishEditing item: ChecklistItem
   )
 }
+
+protocol ListDetailViewControllerDelegate: AnyObject{
+  func listDetailViewControllerDidCancel(_ controller: ListDetailViewController)
+  func listDetailViewController(_ controller: ListDetailViewController, didFinishAdding item: Checklist)
+  func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing item: Checklist)
+}
