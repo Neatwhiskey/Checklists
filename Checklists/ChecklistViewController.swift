@@ -9,10 +9,12 @@ import UIKit
 
 class ChecklistViewController: UITableViewController{
   var items = [ChecklistItem]()
+  var checklist: Checklist!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationController?.navigationBar.prefersLargeTitles = true
+    title = checklist.name
+    navigationController?.navigationBar.prefersLargeTitles = false
 
     loadChecklistItems()
   }
