@@ -15,17 +15,24 @@ class AllListsTableViewController: UITableViewController {
       navigationController?.navigationBar.prefersLargeTitles = true
       tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
       
-      var list = Checklist(name: "Birthdays")
-      lists.append(list)
-      
-      list = Checklist(name: "Groceries")
-      lists.append(list)
-      
-      list = Checklist(name: "Cool apps")
-      lists.append(list)
-      
-      list = Checklist(name: "To-Do")
-      lists.append(list)
+//      var list = Checklist(name: "Birthdays")
+//      lists.append(list)
+//
+//      list = Checklist(name: "Groceries")
+//      lists.append(list)
+//
+//      list = Checklist(name: "Cool apps")
+//      lists.append(list)
+//
+//      list = Checklist(name: "To-Do")
+//      lists.append(list)
+//
+//      for list in lists{
+//        let item = ChecklistItem()
+//        item.text = "item for \(list.name)"
+//        list.items.append(item)
+//      }
+      loadChecklists()
       
     }
 
@@ -108,4 +115,40 @@ extension AllListsTableViewController: ListDetailViewControllerDelegate{
   }
   
   
+}
+
+extension AllListsTableViewController{
+  //MARK: - Data saving
+  
+  func documentsDirectory()->URL{
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+  }
+  
+  func dataFile()->URL{
+    return documentsDirectory().appendingPathComponent("Checklists.plist")
+  }
+  
+  func saveChecklists(){
+    let encoder = PropertyListEncoder()
+    do{
+      let data = try encoder.encode(lists)
+      try data.write(to: dataFile(), options: Data.WritingOptions.atomic)
+    }catch{
+      print("error encoding list array: \(error.localizedDescription)")
+    }
+  }
+  
+  func loadChecklists(){
+    let path = dataFile()
+    if let data = try? Data(contentsOf: path){
+      let decoder = PropertyListDecoder()
+      do{
+        lists = try decoder.decode([Checklist].self, from: data)
+      }catch{
+        print("error decoding list array: \(error.localizedDescription)")
+      }
+    }
+        
+  }
 }
