@@ -20,12 +20,24 @@ class DataModel{
   init(){
     registerDefaults()
     loadChecklists()
+    registerDefaults()
+    handleFirstTime()
+  }
+  func handleFirstTime(){
+    let userdefault = UserDefaults.standard
+    let firstTime = userdefault.bool(forKey: "FirstTime")
+    
+    if firstTime{
+      let checklist = Checklist(name: "List")
+      lists.append(checklist)
+      indexOfSelectedChecklist = 0
+      userdefault.set(false, forKey: "FirstTime")
+    }
   }
   func registerDefaults(){
-    let dictionary = ["Checklist":-1]
+    let dictionary = ["Checklist":-1, "FirstTime": true] as![String: Any]
     UserDefaults.standard.register(defaults: dictionary)
   }
-  
   func documentsDirectory()->URL{
     let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     return paths[0]
