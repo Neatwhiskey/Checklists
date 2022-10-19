@@ -61,9 +61,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   //MARK: - Helper methods
   func saveData(){
     dataModel.saveChecklists()
-//    let navigationController = window?.rootViewController as! UINavigationController
-//    let controller = navigationController.viewControllers[0] as! AllListsTableViewController
-//    controller.saveChecklists()
+
   }
 }
 
