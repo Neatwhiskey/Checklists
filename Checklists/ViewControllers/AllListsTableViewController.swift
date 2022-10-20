@@ -114,6 +114,7 @@ extension AllListsTableViewController:UINavigationControllerDelegate{
   func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
     if viewController === self{
       dataModel.indexOfSelectedChecklist = -1
+      
     }
   }
 }

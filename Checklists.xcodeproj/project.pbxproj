@@ -51,6 +51,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13B7D1C02901F95800A737FA /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				13BCA0B629004C69002AE144 /* DataModel.swift */,
+				13BCA0B228FDDB00002AE144 /* Checklist.swift */,
+				DDD51B082699B2CE001193A1 /* ChecklistItem.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		13B7D1C12901F9A500A737FA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				13BCA0B428FE31C8002AE144 /* ListDetailViewController.swift */,
+				DDD51AF62698AE89001193A1 /* ChecklistViewController.swift */,
+				13BCA0B028FDC6EC002AE144 /* AllListsTableViewController.swift */,
+				DD56F7082699D9AE00F3E76D /* ItemDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		DDD51AE62698AE89001193A1 = {
 			isa = PBXGroup;
 			children = (
@@ -72,19 +93,14 @@
 		DDD51AF12698AE89001193A1 /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
-				13BCA0B228FDDB00002AE144 /* Checklist.swift */,
-				13BCA0B428FE31C8002AE144 /* ListDetailViewController.swift */,
+				13B7D1C12901F9A500A737FA /* ViewControllers */,
 				DDD51AF22698AE89001193A1 /* AppDelegate.swift */,
 				DDD51AF42698AE89001193A1 /* SceneDelegate.swift */,
-				13BCA0B629004C69002AE144 /* DataModel.swift */,
-				DDD51AF62698AE89001193A1 /* ChecklistViewController.swift */,
-				13BCA0B028FDC6EC002AE144 /* AllListsTableViewController.swift */,
 				DDD51AF82698AE89001193A1 /* Main.storyboard */,
 				DDD51AFB2698AE8B001193A1 /* Assets.xcassets */,
 				DDD51AFD2698AE8B001193A1 /* LaunchScreen.storyboard */,
 				DDD51B002698AE8B001193A1 /* Info.plist */,
-				DDD51B082699B2CE001193A1 /* ChecklistItem.swift */,
-				DD56F7082699D9AE00F3E76D /* ItemDetailViewController.swift */,
+				13B7D1C02901F95800A737FA /* DataModels */,
 				13A6083228FD88E000E49E6B /* protocols.swift */,
 			);
 			path = Checklists;
