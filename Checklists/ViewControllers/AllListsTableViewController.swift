@@ -59,6 +59,7 @@ class AllListsTableViewController: UITableViewController {
       }else{
         cell.detailTextLabel!.text = count == 0 ? "All done": "\(checklist.countUncheckedItems()) remaining"
       }
+      cell.imageView!.image = UIImage(named: checklist.iconName)
       cell.accessoryType = .detailDisclosureButton
 
         return cell
