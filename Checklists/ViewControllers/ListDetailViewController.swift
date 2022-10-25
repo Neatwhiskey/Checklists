@@ -8,7 +8,7 @@
 import UIKit
 
 class ListDetailViewController: UITableViewController {
-
+//MARK: - View controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
       if let checklist = checklistToEdit{
@@ -39,8 +39,9 @@ class ListDetailViewController: UITableViewController {
       checklist.iconName = iconName
       delegate?.listDetailViewController(self, didFinishEditing: checklist)
     }else{
-      let checklist = Checklist(name: textField.text!)
+      let checklist = Checklist(name: textField.text!, iconName: iconName)
       checklist.iconName = iconName
+      checklist.name = textField.text!
       delegate?.listDetailViewController(self, didFinishAdding: checklist)
     }
   }
@@ -56,6 +57,7 @@ class ListDetailViewController: UITableViewController {
     if segue.identifier == "PickIcon"{
       let controller = segue.destination as! IconPickerViewController
       controller.delegate = self
+      
     }
   }
 
@@ -78,10 +80,10 @@ extension ListDetailViewController: UITextFieldDelegate{
     return true
   }
   
-  func textFieldShouldClear(_ textField: UITextField) -> Bool {
-    doneBarButton.isEnabled = false
-    return true
-  }
+//  func textFieldShouldClear(_ textField: UITextField) -> Bool {
+//    doneBarButton.isEnabled = false
+//    return true
+//  }
 }
 
 //MARK: - IconPickerViewControllerDelegate
