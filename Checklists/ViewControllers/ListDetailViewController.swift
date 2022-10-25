@@ -39,7 +39,7 @@ class ListDetailViewController: UITableViewController {
       checklist.iconName = iconName
       delegate?.listDetailViewController(self, didFinishEditing: checklist)
     }else{
-      let checklist = Checklist(name: textField.text!)
+      let checklist = Checklist(name: textField.text!, iconName: iconName)
       checklist.iconName = iconName
       delegate?.listDetailViewController(self, didFinishAdding: checklist)
     }
@@ -56,6 +56,7 @@ class ListDetailViewController: UITableViewController {
     if segue.identifier == "PickIcon"{
       let controller = segue.destination as! IconPickerViewController
       controller.delegate = self
+      
     }
   }
 
