@@ -174,6 +174,7 @@ extension ChecklistViewController: ItemDetailViewControllerDelegate{
     let indexPaths = [indexPath]
     tableView.insertRows(at: indexPaths, with: .automatic)
     navigationController?.popViewController(animated:true)
+    checklist.sortChecklistItem()
     //saveChecklistItems()
   }
   
@@ -187,6 +188,7 @@ extension ChecklistViewController: ItemDetailViewControllerDelegate{
         configureText(for: cell, with: item)
       }
     }
+    checklist.sortChecklistItem()
     navigationController?.popViewController(animated: true)
     //saveChecklistItems()
   }

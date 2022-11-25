@@ -23,7 +23,11 @@ class Checklist: NSObject, Codable{
 //    return count
   }
   
- 
+  func sortChecklistItem(){
+    items.sort{list1, list2 in
+      return list1.dueDate.compare(list2.dueDate) == .orderedAscending
+    }
+  }
   
   init(name: String, iconName: String = "No Icon") {
     self.name = name
